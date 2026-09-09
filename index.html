@@ -3,2695 +3,1039 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
-  <title>ちいかわ風・人魚の島の秘密 // 簿記冒険帳</title>
- 
+  <title>MISERY // 簿記サスペンスアドベンチャー</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
- 
+    * { box-sizing: border-box; }
     :root {
-      --sea-deep: #075985;
-      --sea: #0284c7;
-      --sea-light: #38bdf8;
-      --sky: #bae6fd;
- 
-      --sand: #fff7d6;
-      --sand-dark: #f5d98a;
- 
-      --coral: #fb7185;
-      --pink: #fda4af;
- 
-      --bubble: rgba(255,255,255,0.75);
- 
-      --text: #164e63;
-      --text-soft: #52788a;
- 
-      --success: #16a34a;
-      --success-bg: #dcfce7;
- 
-      --danger: #e11d48;
-      --danger-bg: #ffe4e6;
- 
-      --card: rgba(255,255,255,0.92);
-      --border: rgba(14,116,144,0.25);
- 
-      --shadow:
-        0 12px 30px rgba(7, 89, 133, 0.18);
+      --blood: #8b0000;
+      --blood-light: #b22222;
+      --bg-dark: #121417;
+      --card-bg: #1c2024;
+      --antique-paper: #f4ede1;
+      --typewriter-ink: #22201e;
+      --snow: #e6edf3;
+      --gold: #d4af37;
+      --wood: #4a3525;
+      --border: #3d444d;
     }
- 
-    html {
-      min-height: 100%;
-    }
- 
     body {
       margin: 0;
       min-height: 100vh;
- 
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Hiragino Kaku Gothic ProN",
-        "Hiragino Sans",
-        "Yu Gothic",
-        "Meiryo",
-        sans-serif;
- 
-      color: var(--text);
- 
-      background:
-        radial-gradient(
-          circle at 15% 15%,
-          rgba(255,255,255,.85) 0 3px,
-          transparent 4px
-        ),
-        radial-gradient(
-          circle at 80% 30%,
-          rgba(255,255,255,.55) 0 4px,
-          transparent 5px
-        ),
-        linear-gradient(
-          180deg,
-          #bae6fd 0%,
-          #7dd3fc 22%,
-          #38bdf8 55%,
-          #0284c7 100%
-        );
- 
-      padding: 18px;
+      font-family: "Courier New", Courier, "Hiragino Mincho ProN", "Yu Mincho", serif;
+      color: var(--snow);
+      background-color: var(--bg-dark);
+      background-image: radial-gradient(circle at 50% 10%, #252b33 0%, #0d0f12 100%);
+      padding: 16px;
       overflow-x: hidden;
     }
- 
-    /* =========================
-       海中の泡
-    ========================== */
- 
-    .bubble {
-      position: fixed;
-      bottom: -80px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.22);
-      border: 2px solid rgba(255,255,255,.38);
-      pointer-events: none;
-      animation: bubbleUp linear infinite;
-      z-index: 0;
-    }
- 
-    .bubble:nth-child(1) {
-      left: 5%;
-      width: 28px;
-      height: 28px;
-      animation-duration: 11s;
-    }
- 
-    .bubble:nth-child(2) {
-      left: 17%;
-      width: 12px;
-      height: 12px;
-      animation-duration: 7s;
-      animation-delay: 2s;
-    }
- 
-    .bubble:nth-child(3) {
-      left: 32%;
-      width: 38px;
-      height: 38px;
-      animation-duration: 14s;
-      animation-delay: 1s;
-    }
- 
-    .bubble:nth-child(4) {
-      left: 52%;
-      width: 18px;
-      height: 18px;
-      animation-duration: 8s;
-      animation-delay: 3s;
-    }
- 
-    .bubble:nth-child(5) {
-      left: 72%;
-      width: 32px;
-      height: 32px;
-      animation-duration: 12s;
-      animation-delay: 4s;
-    }
- 
-    .bubble:nth-child(6) {
-      left: 91%;
-      width: 15px;
-      height: 15px;
-      animation-duration: 9s;
-      animation-delay: 2s;
-    }
- 
-    @keyframes bubbleUp {
-      0% {
-        transform: translateY(0) translateX(0);
-        opacity: 0;
-      }
- 
-      10% {
-        opacity: .8;
-      }
- 
-      50% {
-        transform: translateY(-50vh) translateX(25px);
-      }
- 
-      100% {
-        transform: translateY(-115vh) translateX(-20px);
-        opacity: 0;
-      }
-    }
- 
-    /* =========================
-       メインコンテナ
-    ========================== */
- 
     .container {
-      position: relative;
-      z-index: 2;
- 
       width: 100%;
-      max-width: 760px;
- 
+      max-width: 700px;
       margin: 0 auto;
- 
-      background: var(--card);
- 
-      border: 3px solid rgba(255,255,255,.75);
-      border-radius: 28px;
- 
+      background: var(--card-bg);
+      border: 3px solid var(--blood);
+      border-radius: 16px;
       padding: 22px;
- 
-      box-shadow: var(--shadow);
- 
-      overflow: hidden;
-    }
- 
-    .container::before {
-      content: "";
-      position: absolute;
-      left: -20%;
-      right: -20%;
-      top: -65px;
- 
-      height: 100px;
- 
-      background: rgba(255,255,255,.35);
- 
-      border-radius: 50%;
- 
-      pointer-events: none;
-    }
- 
-    /* =========================
-       ヘッダー
-    ========================== */
- 
-    .header {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(139, 0, 0, 0.4);
       position: relative;
- 
+    }
+    .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 12px;
- 
-      padding: 6px 4px 18px;
- 
-      border-bottom: 3px dashed rgba(14,116,144,.18);
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 14px;
     }
- 
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
- 
-    .island-icon {
-      width: 54px;
-      height: 54px;
- 
-      display: flex;
-      justify-content: center;
-      align-items: center;
- 
-      background:
-        radial-gradient(
-          circle at 35% 30%,
-          #fff 0 8px,
-          transparent 9px
-        ),
-        linear-gradient(
-          160deg,
-          #fef3c7,
-          #fde68a
-        );
- 
-      border: 3px solid #fff;
-      border-radius: 50%;
- 
-      box-shadow:
-        0 4px 0 #f59e0b,
-        0 7px 15px rgba(245,158,11,.25);
- 
-      font-size: 28px;
-    }
- 
-    .header h1 {
+    .logo-area { display: flex; align-items: center; gap: 14px; }
+    .typewriter-svg { width: 46px; height: 46px; flex-shrink: 0; fill: var(--gold); }
+    .logo-title {
       margin: 0;
- 
-      font-size: 1.08rem;
-      line-height: 1.35;
- 
-      color: var(--sea-deep);
- 
+      font-size: 1.25rem;
+      color: #ff4d4d;
+      letter-spacing: 2px;
       font-weight: 900;
- 
-      letter-spacing: .5px;
+      text-transform: uppercase;
     }
- 
-    .subtitle {
-      margin-top: 3px;
- 
-      font-size: .72rem;
-      color: var(--text-soft);
-    }
- 
     .status-badge {
-      flex-shrink: 0;
- 
-      padding: 7px 11px;
- 
-      border-radius: 999px;
- 
-      background: #dcfce7;
-      color: #15803d;
- 
-      border: 2px solid #86efac;
- 
-      font-size: .72rem;
-      font-weight: 800;
- 
-      box-shadow: 0 3px 0 rgba(22,163,74,.18);
+      background: var(--blood);
+      color: var(--snow);
+      padding: 6px 12px;
+      border-radius: 4px;
+      border: 1px solid var(--gold);
+      font-size: 0.72rem;
+      font-weight: bold;
+      letter-spacing: 1px;
     }
- 
     .status-badge.review {
-      background: #fef3c7;
-      color: #b45309;
-      border-color: #fcd34d;
+      background: var(--gold);
+      color: #1a1a1a;
     }
- 
-    /* =========================
-       探索ゲージ
-    ========================== */
- 
-    .explore-bar {
-      margin: 18px 0;
- 
-      padding: 12px 14px;
- 
-      background: #ecfeff;
- 
-      border: 2px solid #a5f3fc;
-      border-radius: 18px;
+
+    /* 5段階ステージ切り替えタブ */
+    .stage-tabs {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      margin-bottom: 16px;
     }
- 
-    .explore-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
- 
-      margin-bottom: 7px;
- 
-      font-size: .76rem;
-      font-weight: 800;
+    @media (max-width: 520px) {
+      .stage-tabs {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
- 
+    .stage-btn {
+      padding: 9px 4px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #262c33;
+      font-size: 0.7rem;
+      font-weight: bold;
+      color: #a0aec0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .stage-btn:hover {
+      background: #323a44;
+      color: var(--snow);
+    }
+    .stage-btn.active {
+      background: var(--blood);
+      color: #ffffff;
+      border-color: #ff6666;
+      box-shadow: 0 0 10px rgba(178, 34, 34, 0.6);
+    }
+
+    .story-progress {
+      margin-bottom: 16px;
+      padding: 10px 14px;
+      background: #14171a;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
     .progress-track {
+      height: 8px;
       width: 100%;
-      height: 12px;
- 
-      background: #cffafe;
- 
+      background: #2d333b;
       border-radius: 999px;
- 
       overflow: hidden;
+      margin-top: 6px;
     }
- 
     .progress-fill {
       width: 0%;
       height: 100%;
- 
-      background:
-        linear-gradient(
-          90deg,
-          #22d3ee,
-          #0ea5e9,
-          #38bdf8
-        );
- 
-      border-radius: 999px;
- 
-      transition: width .6s ease;
- 
-      box-shadow:
-        0 0 12px rgba(14,165,233,.45);
+      background: linear-gradient(90deg, var(--blood), #ff4d4d);
+      transition: width 0.3s ease;
     }
- 
-    /* =========================
-       問題カード
-    ========================== */
- 
     .card {
-      position: relative;
- 
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.98),
-          rgba(240,249,255,.96)
-        );
- 
-      border: 2px solid var(--border);
- 
-      border-radius: 20px;
- 
+      background: var(--antique-paper);
+      color: var(--typewriter-ink);
+      border: 2px solid #332a22;
+      border-radius: 8px;
       padding: 18px;
- 
-      margin-bottom: 16px;
- 
-      box-shadow:
-        0 5px 15px rgba(7,89,133,.08);
+      margin-bottom: 14px;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.15);
+      position: relative;
     }
- 
-    .card::after {
-      content: "🫧";
- 
+    .card::before {
+      content: "ROYAL 10 - MANUSCRIPT";
       position: absolute;
- 
-      right: 13px;
-      top: 10px;
- 
-      font-size: 22px;
- 
-      opacity: .55;
+      top: 6px;
+      right: 12px;
+      font-size: 0.55rem;
+      color: #7d7065;
+      letter-spacing: 1px;
     }
- 
     .question-label {
       display: inline-block;
- 
-      padding: 5px 9px;
- 
-      margin-bottom: 9px;
- 
-      background: #e0f2fe;
- 
-      color: #0369a1;
- 
-      border-radius: 999px;
- 
-      font-size: .73rem;
-      font-weight: 900;
+      background: var(--blood);
+      color: white;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
- 
-    .story-text {
-      margin: 0;
- 
-      font-size: .96rem;
-      line-height: 1.8;
- 
-      font-weight: 600;
- 
-      color: #164e63;
-    }
- 
-    /* =========================
-       小さな案内キャラクター
-    ========================== */
- 
-    .guide {
-      display: flex;
-      align-items: center;
-      gap: 10px;
- 
-      margin: 12px 0 18px;
- 
-      padding: 10px 13px;
- 
-      background: #fff7ed;
- 
-      border: 2px solid #fed7aa;
- 
-      border-radius: 17px;
- 
-      color: #9a3412;
- 
-      font-size: .78rem;
-      font-weight: 700;
-    }
- 
-    .guide-face {
-      width: 40px;
-      height: 40px;
- 
-      display: flex;
-      align-items: center;
-      justify-content: center;
- 
-      flex-shrink: 0;
- 
-      background: #fff;
- 
-      border: 2px solid #fdba74;
- 
-      border-radius: 50%;
- 
-      font-size: 22px;
- 
-      animation: floatFace 2.5s ease-in-out infinite;
-    }
- 
-    @keyframes floatFace {
-      0%,100% {
-        transform: translateY(0);
-      }
- 
-      50% {
-        transform: translateY(-4px);
-      }
-    }
- 
-    /* =========================
-       借方・貸方
-    ========================== */
- 
+    .story-text { margin: 0; font-size: 0.96rem; line-height: 1.7; font-weight: 600; }
+    
     .split-container {
       display: grid;
- 
       grid-template-columns: 1fr 1fr;
- 
-      gap: 14px;
- 
-      width: 100%;
- 
-      margin-bottom: 16px;
+      gap: 12px;
+      margin-bottom: 14px;
     }
- 
-    @media (max-width: 600px) {
-      .split-container {
-        grid-template-columns: 1fr;
-      }
-    }
- 
+    @media(max-width: 560px) { .split-container { grid-template-columns: 1fr; } }
     .side-column {
-      background:
-        linear-gradient(
-          180deg,
-          #f0fdfa,
-          #ecfeff
-        );
- 
-      border: 2px solid #99f6e4;
- 
-      border-radius: 18px;
- 
-      padding: 13px;
- 
-      transition: transform .2s ease;
+      padding: 12px;
+      background: #181c20;
+      border: 1px solid var(--border);
+      border-radius: 8px;
     }
- 
-    .side-column:hover {
-      transform: translateY(-2px);
-    }
- 
-    .side-column.credit {
-      background:
-        linear-gradient(
-          180deg,
-          #fff7ed,
-          #fff1f2
-        );
- 
-      border-color: #fed7aa;
-    }
- 
-    .side-title {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 6px;
- 
-      margin-bottom: 10px;
- 
-      font-size: .88rem;
- 
-      color: #0f766e;
- 
-      font-weight: 900;
-    }
- 
-    .credit .side-title {
-      color: #be123c;
-    }
- 
-    .entry-row {
-      display: flex;
- 
-      gap: 6px;
- 
-      margin-bottom: 8px;
- 
-      align-items: center;
- 
+    .side-column.credit { border-color: #5c2424; background: #1c1818; }
+    .side-title { text-align: center; margin-bottom: 8px; font-weight: bold; font-size: 0.85rem; color: #cbd5e1; }
+    .entry-row { display: flex; gap: 6px; margin-bottom: 8px; }
+    .entry-row input {
+      padding: 8px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.9rem;
+      background: #0d1117;
+      color: var(--snow);
       width: 100%;
+      font-family: inherit;
     }
- 
-    .entry-row input[type="text"],
-    .entry-row input[type="number"] {
-      min-width: 0;
- 
-      padding: 9px;
- 
-      background: #fff;
- 
-      border: 2px solid #bae6fd;
- 
-      border-radius: 10px;
- 
-      color: var(--text);
- 
-      font-size: .9rem;
- 
-      outline: none;
- 
-      transition:
-        border-color .2s,
-        box-shadow .2s;
-    }
- 
-    .entry-row input[type="text"] {
-      flex: 1.2;
-      width: 0;
-    }
- 
-    .entry-row input[type="number"] {
-      flex: 1;
-      width: 0;
-    }
- 
-    .entry-row input:focus {
-      border-color: #38bdf8;
- 
-      box-shadow:
-        0 0 0 3px rgba(56,189,248,.16);
-    }
- 
+    .entry-row input[type="text"] { flex: 1.3; }
+    .entry-row input[type="number"] { flex: 1; }
+    .entry-row input:focus { outline: none; border-color: var(--gold); }
     .btn-remove {
-      background: #ffe4e6;
- 
-      border: 2px solid #fda4af;
- 
-      color: #be123c;
- 
-      font-size: .82rem;
- 
+      background: #2d1919;
+      border: 1px solid #5c2424;
+      border-radius: 4px;
+      color: #ff8080;
       cursor: pointer;
- 
-      padding: 7px 8px;
- 
-      border-radius: 9px;
- 
-      transition: transform .15s;
+      font-weight: bold;
     }
- 
-    .btn-remove:hover {
-      transform: scale(1.08);
-    }
- 
     .btn-add {
       width: 100%;
- 
-      background: rgba(255,255,255,.8);
- 
-      border: 2px dashed #67e8f9;
- 
-      border-radius: 11px;
- 
-      padding: 7px;
- 
-      font-size: .78rem;
- 
+      padding: 6px;
+      background: #21262d;
+      border: 1px dashed var(--border);
+      color: #c9d1d9;
+      border-radius: 4px;
+      font-size: 0.8rem;
       cursor: pointer;
- 
-      color: #0e7490;
- 
-      font-weight: 800;
+      font-family: inherit;
     }
- 
-    .btn-add:hover {
-      background: #fff;
-    }
- 
-    /* =========================
-       メインボタン
-    ========================== */
- 
+    .btn-add:hover { background: #30363d; }
     .btn-submit {
-      position: relative;
- 
       width: 100%;
- 
-      background:
-        linear-gradient(
-          180deg,
-          #38bdf8,
-          #0284c7
-        );
- 
-      color: #fff;
- 
-      border: 0;
- 
-      border-radius: 15px;
- 
       padding: 14px;
- 
-      font-size: .98rem;
- 
-      font-weight: 900;
- 
+      background: var(--blood);
+      color: white;
+      border: 1px solid #ff6666;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
       cursor: pointer;
- 
-      box-shadow:
-        0 5px 0 #075985,
-        0 9px 18px rgba(2,132,199,.22);
- 
-      transition:
-        transform .15s,
-        box-shadow .15s;
+      box-shadow: 0 4px 10px rgba(139, 0, 0, 0.4);
+      letter-spacing: 1px;
+      font-family: inherit;
     }
- 
-    .btn-submit:hover {
-      transform: translateY(-2px);
- 
-      box-shadow:
-        0 7px 0 #075985,
-        0 12px 22px rgba(2,132,199,.25);
-    }
- 
-    .btn-submit:active {
-      transform: translateY(3px);
- 
-      box-shadow:
-        0 2px 0 #075985;
-    }
- 
-    /* =========================
-       結果表示
-    ========================== */
- 
+    .btn-submit:hover { background: var(--blood-light); }
     .result-box {
-      margin-top: 18px;
- 
-      padding: 15px;
- 
-      border-radius: 17px;
- 
       display: none;
- 
-      font-size: .88rem;
- 
-      line-height: 1.75;
- 
-      animation: resultAppear .35s ease;
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      line-height: 1.6;
     }
- 
-    @keyframes resultAppear {
-      from {
-        opacity: 0;
-        transform: translateY(8px);
-      }
- 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
- 
-    .result-box.correct {
-      background:
-        linear-gradient(
-          135deg,
-          #ecfdf5,
-          #dcfce7
-        );
- 
-      border: 2px solid #86efac;
- 
-      color: #166534;
- 
-      box-shadow:
-        0 5px 18px rgba(34,197,94,.15);
-    }
- 
-    .result-box.wrong {
-      background:
-        linear-gradient(
-          135deg,
-          #fff1f2,
-          #ffe4e6
-        );
- 
-      border: 2px solid #fda4af;
- 
-      color: #9f1239;
-    }
- 
-    /* =========================
-       ナビゲーション
-    ========================== */
- 
-    .nav-buttons {
-      display: flex;
- 
-      justify-content: space-between;
- 
-      gap: 10px;
- 
-      margin-top: 18px;
-    }
- 
+    .result-box.correct { background: #12261a; border: 1px solid #2ea043; color: #7ee787; }
+    .result-box.wrong { background: #2b1314; border: 1px solid #da3633; color: #f85149; }
+    .nav-buttons { display: flex; gap: 10px; margin-top: 14px; }
     .nav-btn {
       flex: 1;
- 
-      background: #0e7490;
- 
-      color: #fff;
- 
-      border: 0;
- 
-      border-radius: 12px;
- 
-      padding: 10px 14px;
- 
+      padding: 10px;
+      background: #21262d;
+      color: var(--snow);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-weight: bold;
       cursor: pointer;
- 
-      font-weight: 800;
- 
-      box-shadow: 0 3px 0 #164e63;
- 
-      transition: transform .15s;
+      font-family: inherit;
     }
- 
-    .nav-btn:hover {
-      transform: translateY(-2px);
-    }
- 
-    /* =========================
-       完了画面
-    ========================== */
- 
-    .clear-card {
-      text-align: center;
- 
-      padding: 28px 18px;
- 
-      display: none;
-    }
- 
-    .treasure {
-      font-size: 60px;
- 
-      animation:
-        treasureFloat 2s ease-in-out infinite;
-    }
- 
-    @keyframes treasureFloat {
-      0%,100% {
-        transform: translateY(0) rotate(-3deg);
-      }
- 
-      50% {
-        transform: translateY(-9px) rotate(3deg);
-      }
-    }
- 
-    .badge-complete {
-      display: inline-block;
- 
-      background:
-        linear-gradient(
-          135deg,
-          #fef3c7,
-          #fde68a
-        );
- 
-      color: #92400e;
- 
-      border: 3px solid #fbbf24;
- 
-      padding: 9px 17px;
- 
-      border-radius: 9999px;
- 
-      font-size: 1.02rem;
- 
-      font-weight: 900;
- 
-      margin: 8px 0 18px;
- 
-      box-shadow:
-        0 4px 0 #d97706;
-    }
- 
-    .btn-review,
+    .nav-btn:hover { background: #30363d; }
+    .clear-card { display: none; text-align: center; padding: 24px 16px; }
     .btn-restart {
       width: 100%;
- 
-      border: 0;
- 
-      border-radius: 14px;
- 
-      padding: 13px;
- 
-      font-size: .94rem;
- 
-      font-weight: 900;
- 
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #30363d;
+      color: white;
+      font-weight: bold;
       cursor: pointer;
- 
-      margin-bottom: 10px;
+      margin-top: 10px;
+      font-family: inherit;
     }
- 
-    .btn-review {
-      background:
-        linear-gradient(
-          180deg,
-          #fb923c,
-          #ea580c
-        );
- 
-      color: #fff;
- 
-      box-shadow: 0 4px 0 #9a3412;
-    }
- 
-    .btn-restart {
-      background:
-        linear-gradient(
-          180deg,
-          #38bdf8,
-          #0284c7
-        );
- 
-      color: #fff;
- 
-      box-shadow: 0 4px 0 #075985;
-    }
- 
-    /* =========================
-       JSONエリア
-    ========================== */
- 
     details {
-      margin-top: 24px;
- 
-      border-top: 2px dashed #bae6fd;
- 
+      margin-top: 20px;
+      border-top: 1px dashed var(--border);
       padding-top: 14px;
     }
- 
     summary {
       cursor: pointer;
- 
-      font-size: .8rem;
- 
-      color: #0e7490;
- 
-      font-weight: 800;
+      font-size: 0.8rem;
+      color: #8b949e;
+      font-weight: bold;
     }
- 
     textarea {
       width: 100%;
- 
-      height: 110px;
- 
-      margin-top: 12px;
- 
-      border: 2px solid #bae6fd;
- 
-      border-radius: 12px;
- 
+      height: 100px;
+      margin-top: 10px;
       padding: 10px;
- 
-      font-size: .8rem;
- 
-      box-sizing: border-box;
- 
+      background: #0d1117;
+      color: var(--snow);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-family: monospace;
       resize: vertical;
- 
-      outline: none;
     }
- 
-    textarea:focus {
-      border-color: #38bdf8;
+    .load-btn {
+      width: 100%;
+      margin-top: 8px;
+      padding: 10px;
+      background: #238636;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
     }
- 
-    /* =========================
-       キラキラ演出
-    ========================== */
- 
-    .sparkle {
+    .reset-link {
+      display: block;
+      margin-top: 18px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #8b949e;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    /* 映画的演出：大ハンマーや恐怖に震えるブルブル */
+    .shake-animation {
+      animation: heavyShake 0.45s cubic-bezier(.36,.07,.19,.97) both;
+    }
+    @keyframes heavyShake {
+      10%, 90% { transform: translate3d(-4px, 0, 0); }
+      20%, 80% { transform: translate3d(6px, 0, 0); }
+      30%, 50%, 70% { transform: translate3d(-8px, 0, 0); }
+      40%, 60% { transform: translate3d(8px, 0, 0); }
+    }
+
+    /* 正解演出：雪、タイプライターの紙片、炎の火の粉が舞い上がる */
+    .rising-item {
       position: fixed;
- 
+      bottom: -30px;
+      z-index: 9999;
       pointer-events: none;
- 
-      z-index: 99;
- 
-      font-size: 24px;
- 
-      animation: sparkleAnimation 1.2s ease-out forwards;
+      user-select: none;
+      opacity: 0;
+      animation: riseUp ease-out forwards;
     }
- 
-    @keyframes sparkleAnimation {
-      0% {
-        transform:
-          translate(0,0)
-          scale(.4)
-          rotate(0);
- 
-        opacity: 0;
-      }
- 
-      20% {
-        opacity: 1;
-      }
- 
-      100% {
-        transform:
-          translate(
-            var(--x),
-            var(--y)
-          )
-          scale(1.4)
-          rotate(180deg);
- 
-        opacity: 0;
-      }
-    }
- 
-    /* =========================
-       不正解時の揺れ
-    ========================== */
- 
-    .shake {
-      animation: shake .45s ease;
-    }
- 
-    @keyframes shake {
-      0%,100% {
-        transform: translateX(0);
-      }
- 
-      20% {
-        transform: translateX(-7px);
-      }
- 
-      40% {
-        transform: translateX(7px);
-      }
- 
-      60% {
-        transform: translateX(-5px);
-      }
- 
-      80% {
-        transform: translateX(5px);
-      }
-    }
- 
-    /* =========================
-       スマホ
-    ========================== */
- 
-    @media (max-width: 520px) {
- 
-      body {
-        padding: 8px;
-      }
- 
-      .container {
-        padding: 14px;
- 
-        border-radius: 22px;
-      }
- 
-      .header h1 {
-        font-size: .9rem;
-      }
- 
-      .subtitle {
-        font-size: .65rem;
-      }
- 
-      .island-icon {
-        width: 44px;
-        height: 44px;
- 
-        font-size: 23px;
-      }
- 
-      .status-badge {
-        font-size: .62rem;
-        padding: 5px 7px;
-      }
- 
-      .story-text {
-        font-size: .9rem;
-      }
- 
-      .nav-buttons {
-        flex-direction: column;
-      }
- 
-      .nav-btn {
-        width: 100%;
-      }
+    @keyframes riseUp {
+      0% { transform: translateY(0) scale(0.4) rotate(0deg); opacity: 0; }
+      15% { opacity: 0.95; }
+      50% { transform: translateY(-50vh) translateX(var(--drift, 20px)) scale(1.1) rotate(180deg); opacity: 0.9; }
+      85% { opacity: 0.7; }
+      100% { transform: translateY(-110vh) translateX(calc(var(--drift, 20px) * -1)) scale(1.3) rotate(360deg); opacity: 0; }
     }
   </style>
 </head>
- 
 <body>
- 
-  <!-- 海の泡 -->
-  <div class="bubble"></div>
-  <div class="bubble"></div>
-  <div class="bubble"></div>
-  <div class="bubble"></div>
-  <div class="bubble"></div>
-  <div class="bubble"></div>
- 
-  <div class="container">
- 
-    <!-- =========================
-         ヘッダー
-    ========================== -->
- 
-    <div class="header">
- 
-      <div class="logo-area">
- 
-        <div class="island-icon">
-          🏝️
-        </div>
- 
-        <div>
-          <h1>
-            人魚の島のひみつ
-            <br>
-            簿記ぼうけん帳
-          </h1>
- 
-          <div class="subtitle">
-            〜 海の向こうにある秘密を解き明かそう 〜
-          </div>
-        </div>
- 
+
+<div class="container" id="mainContainer">
+  <div class="header">
+    <div class="logo-area">
+      <!-- タイプライターアイコン -->
+      <svg class="typewriter-svg" viewBox="0 0 24 24">
+        <path d="M4 3h16a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm0 7h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1zm2 3v2h2v-2H6zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2zm-8 4v2h8v-2H6z"/>
+      </svg>
+      <div>
+        <h1 class="logo-title">MISERY BOKI</h1>
+        <div style="font-size:0.7rem; color:#8b949e;" id="sub-title">〜 アニー・ウィルクスの雪深き孤立山荘 〜</div>
       </div>
- 
-      <span
-        class="status-badge"
-        id="status-tag"
-      >
-        🌊 探索中
-      </span>
- 
     </div>
- 
-    <!-- =========================
-         探索ゲージ
-    ========================== -->
- 
-    <div class="explore-bar">
- 
-      <div class="explore-info">
- 
-        <span>
-          🐚 島の探索度
-        </span>
- 
-        <span id="progress-text">
-          0%
-        </span>
- 
-      </div>
- 
-      <div class="progress-track">
-        <div
-          class="progress-fill"
-          id="progress-fill"
-        ></div>
-      </div>
- 
-    </div>
- 
-    <!-- =========================
-         クイズ
-    ========================== -->
- 
-    <div id="quiz-area">
- 
-      <div class="card">
- 
-        <div
-          class="question-label"
-          id="q-number"
-        >
-          🐠 島の試練 // 01
-        </div>
- 
-        <p
-          class="story-text"
-          id="story-display"
-        >
-          読み込み中...
-        </p>
- 
-      </div>
- 
-      <div class="guide">
- 
-        <div class="guide-face">
-          🐟
-        </div>
- 
-        <div>
-          島の宝箱を開けるには、
-          <br>
-          正しい仕訳を完成させよう！
-        </div>
- 
-      </div>
- 
-      <!-- 借方・貸方 -->
- 
-      <div class="split-container">
- 
-        <div class="side-column">
- 
-          <div class="side-title">
-            🐚 借方（Debit）
-          </div>
- 
-          <div id="debit-rows"></div>
- 
-          <button
-            type="button"
-            class="btn-add"
-            onclick="addRow('debit')"
-          >
-            ＋ もう1行追加する
-          </button>
- 
-        </div>
- 
-        <div class="side-column credit">
- 
-          <div class="side-title">
-            🐠 貸方（Credit）
-          </div>
- 
-          <div id="credit-rows"></div>
- 
-          <button
-            type="button"
-            class="btn-add"
-            onclick="addRow('credit')"
-          >
-            ＋ もう1行追加する
-          </button>
- 
-        </div>
- 
-      </div>
- 
-      <button
-        type="button"
-        class="btn-submit"
-        id="submit-btn"
-        onclick="checkAnswer()"
-      >
-        ✨ 仕訳を完成させる！
-      </button>
- 
-      <div
-        id="result-display"
-        class="result-box"
-      ></div>
- 
-      <div class="nav-buttons">
- 
-        <button
-          type="button"
-          class="nav-btn"
-          onclick="prevQuestion()"
-        >
-          🐚 前の島へ
-        </button>
- 
-        <button
-          type="button"
-          class="nav-btn"
-          id="next-btn"
-          onclick="nextQuestion()"
-        >
-          次の島へ 🐠
-        </button>
- 
-      </div>
- 
-    </div>
- 
-    <!-- =========================
-         完了画面
-    ========================== -->
- 
-    <div
-      id="clear-area"
-      class="clear-card card"
-    >
- 
-      <div class="treasure">
-        🏝️✨
-      </div>
- 
-      <h2>
-        人魚の島を攻略した！
-      </h2>
- 
-      <div id="complete-badge-area"></div>
- 
-      <p
-        id="score-text"
-        style="
-          line-height:1.8;
-          color:var(--text-soft);
-        "
-      ></p>
- 
-      <div id="review-btn-area"></div>
- 
-      <button
-        type="button"
-        class="btn-restart"
-        onclick="startFreshQuiz()"
-      >
-        🌊 もう一度、島を冒険する
-      </button>
- 
-    </div>
- 
-    <!-- =========================
-         JSON読み込み
-    ========================== -->
- 
-    <details>
- 
-      <summary>
-        🐚 新しい「島の試練」データを読み込む
-      </summary>
- 
-      <textarea
-        id="json-input"
-        placeholder="JSONコードを貼り付けてください"
-      ></textarea>
- 
-      <button
-        type="button"
-        class="btn-submit"
-        style="
-          background:linear-gradient(
-            180deg,
-            #34d399,
-            #059669
-          );
-          box-shadow:0 5px 0 #047857;
-          margin-top:8px;
-        "
-        onclick="loadCustomData()"
-      >
-        🗝️ 秘密の問題データを読み込む
-      </button>
- 
-    </details>
- 
+    <span class="status-badge" id="status-tag">❄️ 監禁中</span>
   </div>
- 
- 
+
+  <!-- ステージ切り替えタブ (全5段階) -->
+  <div class="stage-tabs">
+    <button type="button" class="stage-btn active" id="tab-0" onclick="switchStage(0)">Lv.1<br>吹雪の救出</button>
+    <button type="button" class="stage-btn" id="tab-1" onclick="switchStage(1)">Lv.2<br>ナンバーワンファン</button>
+    <button type="button" class="stage-btn" id="tab-2" onclick="switchStage(2)">Lv.3<br>原稿焼却と執筆</button>
+    <button type="button" class="stage-btn" id="tab-3" onclick="switchStage(3)">Lv.4<br>大ハンマーの制裁</button>
+    <button type="button" class="stage-btn" id="tab-4" onclick="switchStage(4)">Lv.5<br>死闘と最後の原稿</button>
+  </div>
+
+  <div class="story-progress">
+    <div style="display:flex; justify-content:space-between; font-size:0.75rem; font-weight:bold;">
+      <span id="stage-badge-text">❄️ Lv.1 吹雪の転落と救出編</span>
+      <span id="progress-text">第 1 問</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+  </div>
+
+  <div id="quiz-area">
+    <div class="card">
+      <div class="question-label" id="q-number">CHAPTER // 01</div>
+      <p class="story-text" id="story-display">読み込み中...</p>
+    </div>
+
+    <div class="split-container">
+      <div class="side-column">
+        <div class="side-title">✒️ 借方 (Debit)</div>
+        <div id="debit-rows"></div>
+        <button type="button" class="btn-add" onclick="addRow('debit')">＋ 科目を追加</button>
+      </div>
+      <div class="side-column credit">
+        <div class="side-title">🩸 貸方 (Credit)</div>
+        <div id="credit-rows"></div>
+        <button type="button" class="btn-add" onclick="addRow('credit')">＋ 科目を追加</button>
+      </div>
+    </div>
+
+    <button type="button" class="btn-submit" id="submit-btn" onclick="checkAnswer()">打鍵して仕訳を刻む（判定）</button>
+    <div id="result-display" class="result-box"></div>
+
+    <div class="nav-buttons">
+      <button type="button" class="nav-btn" onclick="prevQuestion()">◀ 前の記憶へ</button>
+      <button type="button" class="nav-btn" id="next-btn" onclick="nextQuestion()">次のページへ ▶</button>
+    </div>
+  </div>
+
+  <div id="clear-area" class="clear-card">
+    <h2 style="color:#ff6666;">📖 チャプター走破</h2>
+    <div id="complete-badge-area"></div>
+    <p id="score-text" style="line-height:1.7; color:#c9d1d9;"></p>
+    <div id="review-btn-area"></div>
+    <button type="button" class="btn-restart" onclick="startFreshStage()">この章をもう一度生き延びる</button>
+  </div>
+
+  <details>
+    <summary>📂 外部の手記データ（JSON）を取り込む</summary>
+    <textarea id="json-input" placeholder="作成したJSON配列をここに貼り付けると、現在の章を上書きできます"></textarea>
+    <button type="button" class="load-btn" onclick="loadCustomData()">手記を書き換える</button>
+  </details>
+
+  <span class="reset-link" onclick="forceReset()">※ 記録が乱れた時はここを押してすべて初期化</span>
+</div>
 <script>
- 
-/* =========================================================
-   人魚の島の秘密
-   簿記冒険データ
-========================================================= */
- 
-const defaultData = [
- 
+const STAGES = [
   {
-    "story":
-      "海辺の小さな村に、みんなで使う冒険のお店を開くことになった。代表の子が自分のお金、500,000円を元入れした。",
-    "debit": [
+    title: "Lv.1 吹雪の転落と救出編",
+    questions: [
       {
-        "account": "現金",
-        "amount": 500000
-      }
-    ],
-    "credit": [
+        "story": "【猛吹雪のコロラド】流行作家ポール・シェルダンは新作小説を脱稿後、猛吹雪の峠道で車ごと崖下へ転落した。大破した愛車（車両運搬具）の帳簿価額 450,000円全額を固定資産除却損として計上した。（固定資産除却損）（車両運搬具）",
+        "debit": [{ "account": "固定資産除却損", "amount": 450000 }],
+        "credit": [{ "account": "車両運搬具", "amount": 450000 }],
+        "explanation": "事故により物理的に全損した資産（Asset）である車両運搬具（Vehicles）を貸方に減額し、損失である費用（Expense）の固定資産除却損（Loss on Retirement of Fixed Assets）を借方に計上します。"
+      },
       {
-        "account": "資本金",
-        "amount": 500000
+        "story": "【熱狂的ファンの救出】意識を失ったポールを怪力で車から引きずり出し自宅の隔離山荘へ運び込んだ元看護師アニー・ウィルクスは、両脚骨折のポールを固定するための中古車椅子（備品）35,000円を現金で購入した。（備品）（現金）",
+        "debit": [{ "account": "備品", "amount": 35000 }],
+        "credit": [{ "account": "現金", "amount": 35000 }],
+        "explanation": "長期間使用する器具・備品の取得に伴い、資産（Asset）である備品（Equipment）を借方に記入し、資産である現金（Cash）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【激痛と鎮痛剤ノヴリル】激痛に叫ぶポールに対し、アニーは常備していた医療用強力鎮痛剤ノヴリル（消耗品費）12,000円分を投与した。代金は以前に現金で支払っていた。（消耗品費）（現金）",
+        "debit": [{ "account": "消耗品費", "amount": 12000 }],
+        "credit": [{ "account": "現金", "amount": 12000 }],
+        "explanation": "医療資材や薬品類の消費に伴う費用（Expense）である消耗品費（Supplies Expense）を借方に計上し、資産（Asset）である現金（Cash）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【山荘の暖房燃料】猛烈な寒波で孤立した山荘を暖めるため、プロパンガスおよび薪（水道光熱費）28,000円分を購入し、普通預金口座から支払った。（水道光熱費）（普通預金）",
+        "debit": [{ "account": "水道光熱費", "amount": 28000 }],
+        "credit": [{ "account": "普通預金", "amount": 28000 }],
+        "explanation": "暖房燃料や光熱の消費に伴う費用（Expense）である水道光熱費（Utilities Expense）を借方に記入し、資産（Asset）である普通預金（Ordinary Deposit）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【愛豚ミザリーのエサ代】アニーは自慢のペットである雌豚の「ミザリー」のために、飼料用トウモロコシ（消耗品費）8,000円を掛けで購入した。（消耗品費）（買掛金）",
+        "debit": [{ "account": "消耗品費", "amount": 8000 }],
+        "credit": [{ "account": "買掛金", "amount": 8000 }],
+        "explanation": "消費資材の購入に伴う費用（Expense）である消耗品費（Supplies Expense）を借方に記入し、未払債務である負債（Liability）の買掛金（Accounts Payable）を貸方に記入します。"
+      },
+      {
+        "story": "【外部遮断と電話線不通】アニーは「電話線が吹雪で切れている」と嘘をつき、ポールが外部と連絡を取れないよう工作した。山荘の防雪・防犯シャッター（建物付属設備）80,000円の据付代金を現金で支払った。（建物付属設備）（現金）",
+        "debit": [{ "account": "建物付属設備", "amount": 80000 }],
+        "credit": [{ "account": "現金", "amount": 80000 }],
+        "explanation": "建物自体の価値を高め固定化する設備は、資産（Asset）である建物付属設備（Building Facilities）として借方に計上し、現金（Cash）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【小説ミザリー最新刊の購入】アニーは待ちきれず、町の本屋で発売されたばかりのポールのシリーズ最終巻『ミザリーの子供』を買いに走り、図書費（新聞図書費）3,500円を現金で支払った。（新聞図書費）（現金）",
+        "debit": [{ "account": "新聞図書費", "amount": 3500 }],
+        "credit": [{ "account": "現金", "amount": 3500 }],
+        "explanation": "書籍や雑誌等の購入に伴う費用（Expense）である新聞図書費（Books and Periodicals Expense）を借方に記入し、現金（Cash）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【アニーの怪しげな副収入】アニーはかつて看護師長時代に得た私的財産の一部である公社債の利息 22,000円を当座預金口座で受け取った。（当座預金）（受取利息）",
+        "debit": [{ "account": "当座預金", "amount": 22000 }],
+        "credit": [{ "account": "受取利息", "amount": 22000 }],
+        "explanation": "金融資産からの果実として収益（Revenue）である受取利息（Interest Income）を貸方に計上し、資産（Asset）である当座預金（Checking Account）の増加を借方に記入します。"
+      },
+      {
+        "story": "【ポールの貴重品管理】アニーはポールの財布から所持金 50,000円を「預かり金」として抜き取り、自宅の金庫に保管した。（現金）（預り金）",
+        "debit": [{ "account": "現金", "amount": 50000 }],
+        "credit": [{ "account": "預り金", "amount": 50000 }],
+        "explanation": "他人から一時的に金銭を預かった義務は負債（Liability）である預り金（Deposits Received）として貸方に計上し、手許の資産（Asset）である現金（Cash）の増加を借方に記入します。"
+      },
+      {
+        "story": "【不穏な平穏と夜間預金】吹雪の第1夜が過ぎた。アニーは手持ちの現金 60,000円を町の銀行の当座預金口座へ預け入れた。（当座預金）（現金）",
+        "debit": [{ "account": "当座預金", "amount": 60000 }],
+        "credit": [{ "account": "現金", "amount": 60000 }],
+        "explanation": "資産（Asset）である当座預金（Checking Account）の増加を借方に記入し、同じく資産である現金（Cash）の減少を貸方に記入します。"
       }
-    ],
-    "explanation":
-      "現金は資産なので、増加したときは借方です。元入れによって資本金が増加するため、貸方に資本金を記帳します。"
+    ]
   },
- 
   {
-    "story":
-      "島の海辺にある小さなお店の家賃70,000円を、現金で支払った。これで雨の日も安心してみんなで集まれる。",
-    "debit": [
+    title: "Lv.2 ナンバーワンファン激昂編",
+    questions: [
       {
-        "account": "支払家賃",
-        "amount": 70000
-      }
-    ],
-    "credit": [
+        "story": "【熱狂的告白】アニーはポールにスープを運びながら「私はあなたのナンバーワン・ファンよ」と微笑んだ。ポールをもてなすための特製陶器スープ皿セット（消耗品費）6,000円を現金で購入した。（消耗品費）（現金）",
+        "debit": [{ "account": "消耗品費", "amount": 6000 }],
+        "credit": [{ "account": "現金", "amount": 6000 }],
+        "explanation": "少額の食器類購入に伴う費用（Expense）である消耗品費（Supplies Expense）を借方に記入し、資産（Asset）の現金（Cash）減少を貸方に記入します。"
+      },
       {
-        "account": "現金",
-        "amount": 70000
+        "story": "【未発表原稿の読書権】アニーはポールのカバンから持ち出した新作原稿『高速の恋人たち』を読む許可を強引に迫った。原稿の査定手数料（支払手数料）15,000円を普通預金から支払った。（支払手数料）（普通預金）",
+        "debit": [{ "account": "支払手数料", "amount": 15000 }],
+        "credit": [{ "account": "普通預金", "amount": 15000 }],
+        "explanation": "役務・仲介に伴う費用（Expense）である支払手数料（Commission Expense）を借方に記入し、資産（Asset）である普通預金（Ordinary Deposit）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【汚い言葉への激怒】原稿中のスラング（下品な言葉）に激怒したアニーは逆上し、スープをベッドにぶちまけた。汚れたマットレスを破棄し、新品の介護ベッド（備品）90,000円を小切手を振り出して購入した。（備品）（当座預金）",
+        "debit": [{ "account": "備品", "amount": 90000 }],
+        "credit": [{ "account": "当座預金", "amount": 90000 }],
+        "explanation": "長期使用に耐えうる資産（Asset）である備品（Equipment）の増加を借方に記入し、小切手振出による当座預金（Checking Account）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【ミザリー死亡の結末】最新刊の結末でヒロインのミザリーが産褥熱で死亡したことを知ったアニーは発狂し、ポールのベッドサイドの木製テーブルを破壊した。破壊されたテーブルの修繕費 18,000円を現金で支払った。（修繕費）（現金）",
+        "debit": [{ "account": "修繕費", "amount": 18000 }],
+        "credit": [{ "account": "現金", "amount": 18000 }],
+        "explanation": "設備の現状維持・修復にかかる費用（Expense）である修繕費（Repair Expense）を借方に記入し、資産（Asset）である現金（Cash）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【鎮痛剤の投与停止脅迫】アニーは激怒のあまりポールのノヴリル投与を拒否し、激痛で悶えるポールを放置した。以前に未払いであったノヴリル代金の買掛金 12,000円を現金で精算した。（買掛金）（現金）",
+        "debit": [{ "account": "買掛金", "amount": 12000 }],
+        "credit": [{ "account": "現金", "amount": 12000 }],
+        "explanation": "営業上の債務である負債（Liability）の買掛金（Accounts Payable）の減少を借方に記入し、資産（Asset）である現金（Cash）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【車輪付きタイプライター台】アニーはポールに新作を書かせるため、頑丈な鉄製ワゴン（備品）24,000円を普通預金口座から振り込んで購入した。（備品）（普通預金）",
+        "debit": [{ "account": "備品", "amount": 24000 }],
+        "credit": [{ "account": "普通預金", "amount": 24000 }],
+        "explanation": "資産（Asset）である備品（Equipment）の増加を借方に計上し、資産である普通預金（Ordinary Deposit）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【狂気のドライブ】心を落ち着かせるため、アニーは夜の雪道を暴走しガス欠寸前になった。ガソリン代（車両費）7,000円を現金で支払った。（車両費）（現金）",
+        "debit": [{ "account": "車両費", "amount": 7000 }],
+        "credit": [{ "account": "現金", "amount": 7000 }],
+        "explanation": "車両の運行・維持にかかる費用（Expense）である車両費（Vehicle Expense）を借方に記入し、資産（Asset）である現金（Cash）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【ポールの小遣い銭の発見】アニーはポールのジャケットの内ポケットからさらに見つかった現金 20,000円を預り金として保管した。（現金）（預り金）",
+        "debit": [{ "account": "現金", "amount": 20000 }],
+        "credit": [{ "account": "預り金", "amount": 20000 }],
+        "explanation": "資産（Asset）である現金（Cash）の増加を借方に計上し、一時保管義務である負債（Liability）の預り金（Deposits Received）を貸方に記入します。"
+      },
+      {
+        "story": "【部屋の施錠強化】ポールが勝手に部屋から出られないよう、頑丈なドアノブ錠前（消耗品費）5,000円を掛けで購入した。（消耗品費）（未払金）",
+        "debit": [{ "account": "消耗品費", "amount": 5000 }],
+        "credit": [{ "account": "未払金", "amount": 5000 }],
+        "explanation": "費用（Expense）である消耗品費（Supplies Expense）を借方に記入し、商品売買以外の未払債務である負債（Liability）の未払金（Accounts Payable - other）を貸方に記入します。"
+      },
+      {
+        "story": "【不穏な朝の資金移動】ポールを完全に支配したと確信したアニーは、手許の現金 40,000円を普通預金口座へ預け入れた。（普通預金）（現金）",
+        "debit": [{ "account": "普通預金", "amount": 40000 }],
+        "credit": [{ "account": "現金", "amount": 40000 }],
+        "explanation": "資産（Asset）である普通預金（Ordinary Deposit）の増加を借方に記入し、現金（Cash）の減少を貸方に記入します。"
       }
-    ],
-    "explanation":
-      "支払家賃は費用なので借方。現金という資産が減少するので貸方に記帳します。"
+    ]
   },
- 
   {
-    "story":
-      "海底の洞窟を調べるための特別な探索機械（備品）200,000円を購入し、普通預金から支払った。",
-    "debit": [
+    title: "Lv.3 原稿焼却とロイヤル10執筆編",
+    questions: [
       {
-        "account": "備品",
-        "amount": 200000
-      }
-    ],
-    "credit": [
+        "story": "【バーベキュー用マッチと燃料】アニーはポールに唯一無二の未発表原稿を自ら燃やすよう強要した。原稿を燃やすためのバーベキュー用チャッカマンと着火剤（消耗品費）3,000円を現金で購入した。（消耗品費）（現金）",
+        "debit": [{ "account": "消耗品費", "amount": 3000 }],
+        "credit": [{ "account": "現金", "amount": 3000 }],
+        "explanation": "消耗資材の消費に伴う費用（Expense）である消耗品費（Supplies Expense）を借方に記入し、資産（Asset）である現金（Cash）の減少を貸方に記入します。"
+      },
       {
-        "account": "普通預金",
-        "amount": 200000
+        "story": "【ロイヤル10タイプライターの搬入】ミザリーを生き返らせる新作を書かせるため、アニーは中古の黒い「ロイヤル10型タイプライター」（備品）40,000円を購入し、代金は小切手を振り出して支払った。（備品）（当座預金）",
+        "debit": [{ "account": "備品", "amount": 40000 }],
+        "credit": [{ "account": "当座預金", "amount": 40000 }],
+        "explanation": "長期使用する執筆機材は資産（Asset）である備品（Equipment）として借方に計上し、当座預金（Checking Account）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【消えた「N」のキー】タイプライターは「N」のキートップが欠落していた。アニーは代わりのインクリボンと印字用紙（事務用品費）10,000円を掛けで仕入れた。（事務用品費）（買掛金）",
+        "debit": [{ "account": "事務用品費", "amount": 10000 }],
+        "credit": [{ "account": "買掛金", "amount": 10000 }],
+        "explanation": "執筆事務のための用紙やリボンは費用（Expense）である事務用品費（Office Supplies Expense）を借方に記入し、負債（Liability）の買掛金（Accounts Payable）を貸方に記入します。"
+      },
+      {
+        "story": "【原稿用紙の紙質クレーム】ポールが「この紙は安物で湿気やすくインクが滲む」と抗議したため、アニーは激高しつつも特注の上質コランプル紙（事務用品費）25,000円を普通預金から支払って購入した。（事務用品費）（普通預金）",
+        "debit": [{ "account": "事務用品費", "amount": 25000 }],
+        "credit": [{ "account": "普通預金", "amount": 25000 }],
+        "explanation": "事務用紙代の費用（Expense）である事務用品費（Office Supplies Expense）を借方に記入し、資産（Asset）の普通預金（Ordinary Deposit）減少を貸方に記入します。"
+      },
+      {
+        "story": "【車椅子での秘密の部屋脱出】アニーの外出中、ポールはヘアピンで部屋の鍵を開け、車椅子で廊下を這い出した。途中で落とした陶器の置物を元の角度に戻す際、破損した破片の補修ボンド（消耗品費）2,000円を現金で計上した。（消耗品費）（現金）",
+        "debit": [{ "account": "消耗品費", "amount": 2000 }],
+        "credit": [{ "account": "現金", "amount": 2000 }],
+        "explanation": "消耗資材の消費に伴う費用（Expense）である消耗品費（Supplies Expense）を借方に記入し、資産（Asset）の現金（Cash）減少を貸方に記入します。"
+      },
+      {
+        "story": "【ノヴリルの隠匿】ポールは配給されたノヴリルを飲み込まず、車椅子の隙間に少しずつ隠し始めた。隠匿したノヴリルの価値に相当する予備医療費（前払費用）8,000円を計上した。（前払費用）（消耗品費）",
+        "debit": [{ "account": "前払費用", "amount": 8000 }],
+        "credit": [{ "account": "消耗品費", "amount": 8000 }],
+        "explanation": "当期に消費せず将来の備えとして保全した費用は、資産（Asset）である前払費用（Prepaid Expenses）へ振り替え、当期の消耗品費を貸方に減額します。"
+      },
+      {
+        "story": "【スクラップブックの恐怖】ポールはリビングの床下でアニーの過去のスクラップブックを発見した。夫や新生児の連続不審死事件の記事が貼られたブックの保管用金庫（備品）50,000円を小切手を振り出して購入していた。（備品）（当座預金）",
+        "debit": [{ "account": "備品", "amount": 50000 }],
+        "credit": [{ "account": "当座預金", "amount": 50000 }],
+        "explanation": "資産（Asset）である備品（Equipment）の増加を借方に記入し、小切手振出による当座預金（Checking Account）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【ミザリー復活への報酬】ポールがミザリーを埋葬から蘇らせる設定を書き上げたため、歓喜したアニーはポールのために特製高級ステーキ肉（福利厚生費）15,000円を現金で購入した。（福利厚生費）（現金）",
+        "debit": [{ "account": "福利厚生費", "amount": 15000 }],
+        "credit": [{ "account": "現金", "amount": 15000 }],
+        "explanation": "労働環境改善や慰労のための費用（Expense）である福利厚生費（Welfare Expense）を借方に記入し、資産（Asset）である現金（Cash）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【ナイフの隠匿と未払金決済】ポールはディナー用のナイフを隠し持った。以前に購入していたステーキ食材の未払金 15,000円を普通預金から支払った。（未払金）（普通預金）",
+        "debit": [{ "account": "未払金", "amount": 15000 }],
+        "credit": [{ "account": "普通預金", "amount": 15000 }],
+        "explanation": "負債（Liability）である未払金（Accounts Payable - other）の減少を借方に記入し、資産（Asset）である普通預金（Ordinary Deposit）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【第3章の閉幕預金】狂気の執筆が続く中、アニーは手持ちの現金 70,000円を当座預金口座へ預け入れた。（当座預金）（現金）",
+        "debit": [{ "account": "当座預金", "amount": 70000 }],
+        "credit": [{ "account": "現金", "amount": 70000 }],
+        "explanation": "資産（Asset）である当座預金（Checking Account）の増加を借方に記入し、現金（Cash）の減少を貸方に記入します。"
       }
-    ],
-    "explanation":
-      "探索機械は備品という資産です。備品の増加を借方、普通預金の減少を貸方に記帳します。"
+    ]
   },
- 
   {
-    "story":
-      "島のお店で販売する貝がらのアクセサリーを90,000円分仕入れた。代金は後日支払うことにした。",
-    "debit": [
+    title: "Lv.4 大ハンマーの制裁（Hobbling）編",
+    questions: [
       {
-        "account": "仕入",
-        "amount": 90000
-      }
-    ],
-    "credit": [
+        "story": "【ペンギンの置物の向き】ポールが部屋を抜け出した証拠（ペンギンの向きが変わっていたこと）に気づいたアニーは、脱走防止用の大ハンマー（工具器具備品）18,000円を現金で購入した。（工具器具備品）（現金）",
+        "debit": [{ "account": "工具器具備品", "amount": 18000 }],
+        "credit": [{ "account": "現金", "amount": 18000 }],
+        "explanation": "耐久性のある工具類の取得に伴い、資産（Asset）である工具器具備品（Tools, Furniture and Fixtures）を借方に記入し、現金（Cash）の減少を貸方に記入します。"
+      },
       {
-        "account": "買掛金",
-        "amount": 90000
+        "story": "【角材の購入】ポールの足首の間に挟んでへし折るための頑丈な木製角材（消耗品費）4,000円を現金で購入した。（消耗品費）（現金）",
+        "debit": [{ "account": "消耗品費", "amount": 4000 }],
+        "credit": [{ "account": "現金", "amount": 4000 }],
+        "explanation": "資材購入に伴う費用（Expense）である消耗品費（Supplies Expense）を借方に記入し、資産（Asset）である現金（Cash）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【狂気の制裁（ホブリング）】アニーは「愛しているからよ」と叫びながら角材を当て、大ハンマーを振り下ろしてポールの両足首を粉砕した。使用した大ハンマーの減価償却費 3,000円を計上した。（減価償却費）（工具器具備品）",
+        "debit": [{ "account": "減価償却費", "amount": 3000 }],
+        "credit": [{ "account": "工具器具備品", "amount": 3000 }],
+        "explanation": "資産価値の減耗に伴う費用（Expense）である減価償却費（Depreciation Expense）を借方に記入し、資産（Asset）である工具器具備品を直接減額します。"
+      },
+      {
+        "story": "【粉砕骨折の緊急手当】足首を砕かれたポールを生き延びさせるため、消毒液と包帯（消耗品費）16,000円を小切手を振り出して購入した。（消耗品費）（当座預金）",
+        "debit": [{ "account": "消耗品費", "amount": 16000 }],
+        "credit": [{ "account": "当座預金", "amount": 16000 }],
+        "explanation": "緊急衛生資材の購入に伴う費用（Expense）である消耗品費（Supplies Expense）を借方に記入し、当座預金（Checking Account）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【バスター保安官の嗅覚】地元の老保安官バスターがポールの失踪に疑問を抱き、アニーの過去を調査し始めた。保安官事務所の捜査資料複写費（雑費）5,000円を現金で支払った。（雑費）（現金）",
+        "debit": [{ "account": "雑費", "amount": 5000 }],
+        "credit": [{ "account": "現金", "amount": 5000 }],
+        "explanation": "少額の雑多な費用（Expense）である雑費（Miscellaneous Expense）を借方に記入し、資産（Asset）である現金（Cash）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【保安官の山荘来訪】バスター保安官がアニーの山荘を訪ねてきた。アニーはポールを地下室に閉じ込め、散弾銃（備品）65,000円を掛けで購入して備えた。（備品）（買掛金）",
+        "debit": [{ "account": "備品", "amount": 65000 }],
+        "credit": [{ "account": "買掛金", "amount": 65000 }],
+        "explanation": "防犯・狩猟器具として資産（Asset）である備品（Equipment）を借方に計上し、営業上の未払債務である負債（Liability）の買掛金（Accounts Payable）を貸方に記入します。"
+      },
+      {
+        "story": "【叫び声と散弾銃の発砲】地下室からポールが物音を立てた瞬間、気づいたバスター保安官の胸をアニーは背後から散弾銃で撃ち抜いた。発砲に伴う弾薬消費（消耗品費）7,000円を現金で計上した。（消耗品費）（現金）",
+        "debit": [{ "account": "消耗品費", "amount": 7000 }],
+        "credit": [{ "account": "現金", "amount": 7000 }],
+        "explanation": "消耗資材の消費に伴う費用（Expense）である消耗品費（Supplies Expense）を借方に記入し、資産（Asset）である現金（Cash）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【殉職した保安官のパトカー隠蔽】アニーはバスターのパトカーを雪の茂みへ隠蔽した。パトカー牽引のために使用したトラクターの燃料代（車両費）9,000円を普通預金から支払った。（車両費）（普通預金）",
+        "debit": [{ "account": "車両費", "amount": 9000 }],
+        "credit": [{ "account": "普通預金", "amount": 9000 }],
+        "explanation": "車両牽引に伴う費用（Expense）である車両費（Vehicle Expense）を借方に記入し、資産（Asset）である普通預金（Ordinary Deposit）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【ポールの復讐の決意】激痛と絶望の中、ポールはタイプライターの鉄製重りを凶器として隠し持った。過去の備品購入にかかる未払金 20,000円を現金で精算した。（未払金）（現金）",
+        "debit": [{ "account": "未払金", "amount": 20000 }],
+        "credit": [{ "account": "現金", "amount": 20000 }],
+        "explanation": "負債（Liability）である未払金（Accounts Payable - other）の減少を借方に記入し、資産（Asset）である現金（Cash）の減少を貸方に記入します。"
+      },
+      {
+        "story": "【狂気と決戦前夜の預入】死体を隠したアニーは手持ちの現金 80,000円を当座預金口座へ預け入れた。（当座預金）（現金）",
+        "debit": [{ "account": "当座預金", "amount": 80000 }],
+        "credit": [{ "account": "現金", "amount": 80000 }],
+        "explanation": "資産（Asset）である当座預金（Checking Account）の増加を借方に記入し、現金（Cash）の減少を貸方に記入します。"
       }
-    ],
-    "explanation":
-      "商品を仕入れたので仕入を借方に記帳します。後日支払う義務が発生するため、買掛金を貸方に記帳します。"
+    ]
   },
- 
   {
-    "story":
-      "旅人のお客さんに、海の宝石セット140,000円を販売した。代金は後日受け取ることになった。",
-    "debit": [
+    title: "Lv.5 死闘と最後の原稿・脱出編",
+    questions: [
       {
-        "account": "売掛金",
-        "amount": 140000
-      }
-    ],
-    "credit": [
+        "story": "【最終原稿の完成】ポールは『ミザリーの帰還』を書き上げ、タバコ1本とドン・ペリニヨンを要求した。アニーが買ってきた特製シャンパン（交際費）25,000円を現金で支払った。（交際費）（現金）",
+        "debit": [{ "account": "交際費", "amount": 25000 }],
+        "credit": [{ "account": "現金", "amount": 25000 }],
+        "explanation": "儀礼・歓待に伴う費用（Expense）である交際費（Entertainment Expense）を借方に記入し、資産（Asset）である現金（Cash）の減少を貸方に記入します。"
+      },
       {
-        "account": "売上",
-        "amount": 140000
-      }
-    ],
-    "explanation":
-      "後から代金を受け取る権利なので売掛金を借方。商品を販売した収益なので売上を貸方に記帳します。"
-  },
- 
-  {
-    "story":
-      "先月販売した商品の代金60,000円が、海辺のお店の当座預金口座へ振り込まれた。",
-    "debit": [
+        "story": "【原稿への火入れの罠】ポールは完成原稿にライターオイルを浴びせ、アニーの目の前で火を放った。原稿の消失に伴う仕掛品廃棄損 60,000円を計上した。（仕掛品廃棄損）（仕掛品）",
+        "debit": [{ "account": "仕掛品廃棄損", "amount": 60000 }],
+        "credit": [{ "account": "仕掛品", "amount": 60000 }],
+        "explanation": "制作途中の著作物価値である資産（Asset）の仕掛品（Work in Process）を貸方に減額し、損失である費用（Expense）の仕掛品廃棄損を借方に計上します。"
+      },
       {
-        "account": "当座預金",
-        "amount": 60000
-      }
-    ],
-    "credit": [
+        "story": "【タイプライターでの反撃】燃える原稿を拾おうと取り乱したアニーの頭部へ、ポールは重量のあるロイヤル10型タイプライター（備品）を叩きつけた。破損したタイプライターの帳簿価額 40,000円を除却損として計上した。（固定資産除却損）（備品）",
+        "debit": [{ "account": "固定資産除却損", "amount": 40000 }],
+        "credit": [{ "account": "備品", "amount": 40000 }],
+        "explanation": "反撃の打撃により完全に損壊した資産（Asset）である備品（Equipment）を貸方に減額し、費用（Expense）である固定資産除却損（Loss on Retirement of Fixed Assets）を借方に計上します。"
+      },
       {
-        "account": "売掛金",
-        "amount": 60000
-      }
-    ],
-    "explanation":
-      "当座預金という資産が増えるので借方。回収によって売掛金という資産が減るため貸方です。"
-  },
- 
-  {
-    "story":
-      "島の仕入れ先に対する買掛金50,000円を支払うため、小切手を振り出した。",
-    "debit": [
+        "story": "【床上の凄惨な肉弾戦】傷を負いながらも猛獣のように襲いかかるアニーの口に、ポールは燃え殻となった原稿の灰を詰め込んだ。床の修繕費 30,000円を未払金として計上した。（修繕費）（未払金）",
+        "debit": [{ "account": "修繕費", "amount": 30000 }],
+        "credit": [{ "account": "未払金", "amount": 30000 }],
+        "explanation": "損傷した建物の修復に伴う費用（Expense）である修繕費（Repair Expense）を借方に記入し、後日支払う義務である負債（Liability）の未払金（Accounts Payable - other）を貸方に記入します。"
+      },
       {
-        "account": "買掛金",
-        "amount": 50000
-      }
-    ],
-    "credit": [
+        "story": "【鉄の豚による致命打】死んだと思われたアニーが包丁を持って再び飛び起きた。ポールはとっさに鉄製の豚の置物（備品）を掴んで渾身の力で振り下ろし、ついにアニーを絶命させた。置物の損耗費 5,000円を現金で支払った。（消耗品費）（現金）",
+        "debit": [{ "account": "消耗品費", "amount": 5000 }],
+        "credit": [{ "account": "現金", "amount": 5000 }],
+        "explanation": "激しい打撃による破損に伴う費用（Expense）である消耗品費（Supplies Expense）を借方に記入し、資産（Asset）である現金（Cash）の減少を貸方に記入します。"
+      },
       {
-        "account": "当座預金",
-        "amount": 50000
-      }
-    ],
-    "explanation":
-      "買掛金という負債が減少するので借方。当座預金が減少するので貸方に記帳します。"
-  },
- 
-  {
-    "story":
-      "島を訪れた仲間から、宝箱の整理を手伝ってほしいと頼まれた。お礼として30,000円を現金でもらった。",
-    "debit": [
+        "story": "【警察隊による保護と搬送】通報を受けて急行した州警察によりポールは救出され、ヘリコプターで病院へ緊急搬送された。医療搬送代金 200,000円を普通預金から支払った。（雑費）（普通預金）",
+        "debit": [{ "account": "雑費", "amount": 200000 }],
+        "credit": [{ "account": "普通預金", "amount": 200000 }],
+        "explanation": "緊急救助・搬送に伴う費用（Expense）である雑費（Miscellaneous Expense）を借方に記入し、資産（Asset）である普通預金（Ordinary Deposit）の減少を貸方に記入します。"
+      },
       {
-        "account": "現金",
-        "amount": 30000
-      }
-    ],
-    "credit": [
+        "story": "【長期入院と脚のリハビリ】両足首の複雑骨折の手術と過酷なリハビリ費用 500,000円のうち、200,000円は現金で支払い、残額 300,000円は保険金給付の未収金とした。（医療費）（未収金）（現金）",
+        "debit": [{ "account": "医療費", "amount": 500000 }],
+        "credit": [{ "account": "現金", "amount": 200000 }, { "account": "未収金", "amount": 300000 }],
+        "explanation": "治療にかかる費用（Expense）である医療費 500,000円を借方に計上し、支払った現金（Cash）200,000円と後日保険から補填される権利である資産（Asset）の未収金 300,000円を貸方に記入する複合仕訳です。"
+      },
       {
-        "account": "受取手数料",
-        "amount": 30000
-      }
-    ],
-    "explanation":
-      "現金という資産が増加するため借方。サービスの対価として受取手数料という収益が発生するため貸方です。"
-  },
- 
-  {
-    "story":
-      "手元にあった現金120,000円を、安全な海辺の銀行の普通預金口座へ預け入れた。",
-    "debit": [
+        "story": "【生還作『ミザリーの帰還』出版】ポールは隠し持っていた真の生原稿をもとに新作を出版した。出版社から印税（売上）1,500,000円のうち、500,000円は普通預金に入金され、残額 1,000,000円は売掛金となった。（普通預金）（売掛金）（売上）",
+        "debit": [{ "account": "普通預金", "amount": 500000 }, { "account": "売掛金", "amount": 1000000 }],
+        "credit": [{ "account": "売上", "amount": 1500000 }],
+        "explanation": "著作物からの収益（Revenue）である売上（Sales）1,500,000円を貸方に計上し、資産（Asset）の普通預金（Ordinary Deposit）500,000円と売掛金（Accounts Receivable）1,000,000円をそれぞれ借方に記入する複合仕訳です。"
+      },
       {
-        "account": "普通預金",
-        "amount": 120000
-      }
-    ],
-    "credit": [
+        "story": "【ニューヨークのレストランの幻影】事件から数ヶ月後、ポールはエージェントと高級レストランで会食した。給仕係の女性が一瞬アニーの姿に見え、恐怖で身を震わせた。飲食代（交際費）35,000円を現金で支払った。（交際費）（現金）",
+        "debit": [{ "account": "交際費", "amount": 35000 }],
+        "credit": [{ "account": "現金", "amount": 35000 }],
+        "explanation": "打ち合わせ・会食に伴う費用（Expense）である交際費（Entertainment Expense）を借方に記入し、資産（Asset）である現金（Cash）の減少を貸方に記入します。"
+      },
       {
-        "account": "現金",
-        "amount": 120000
+        "story": "【生還の決算】ポールは恐怖を抱えながらも作家として生きることを誓った。手許に残った現金 150,000円を普通預金口座へ預け入れた。（普通預金）（現金）",
+        "debit": [{ "account": "普通預金", "amount": 150000 }],
+        "credit": [{ "account": "現金", "amount": 150000 }],
+        "explanation": "資産（Asset）である普通預金（Ordinary Deposit）の増加を借方に記入し、手許の現金（Cash）の減少を貸方に記入します。"
       }
-    ],
-    "explanation":
-      "普通預金が増加するので借方。手元の現金が減少するので貸方に記帳します。"
-  },
- 
-  {
-    "story":
-      "島の大切な宝箱を守るための保管料として、現金10,000円を支払った。",
-    "debit": [
-      {
-        "account": "支払手数料",
-        "amount": 10000
-      }
-    ],
-    "credit": [
-      {
-        "account": "現金",
-        "amount": 10000
-      }
-    ],
-    "explanation":
-      "手数料という費用が発生したので借方。現金という資産が減少したので貸方です。"
+    ]
   }
- 
 ];
- 
- 
-/* =========================================================
-   状態
-========================================================= */
- 
-let baseQuestions = [];
- 
+let currentStageIndex = 0;
 let currentQuestions = [];
- 
 let currentIndex = 0;
- 
 let correctCount = 0;
- 
 let wrongList = [];
- 
 let answeredSet = new Set();
- 
 let isReviewMode = false;
- 
- 
-/* =========================================================
-   初期化
-========================================================= */
- 
+
 function init() {
- 
-  const saved =
-    localStorage.getItem(
-      "mermaid_island_boki_data"
-    );
- 
-  if (saved) {
- 
-    try {
- 
-      baseQuestions = JSON.parse(saved);
- 
-    } catch (e) {
- 
-      baseQuestions = defaultData;
- 
-    }
- 
-  } else {
- 
-    baseQuestions = defaultData;
- 
-  }
- 
- 
-  const savedIdx =
-    localStorage.getItem(
-      "mermaid_island_current_idx"
-    );
- 
-  const savedCorrect =
-    localStorage.getItem(
-      "mermaid_island_correct_cnt"
-    );
- 
-  const savedWrongs =
-    localStorage.getItem(
-      "mermaid_island_wrong_list"
-    );
- 
-  const savedReview =
-    localStorage.getItem(
-      "mermaid_island_is_review"
-    );
- 
- 
-  isReviewMode =
-    savedReview === "true";
- 
-  wrongList =
-    savedWrongs
-      ? JSON.parse(savedWrongs)
-      : [];
- 
-  currentQuestions =
-    isReviewMode
-      ? [...wrongList]
-      : [...baseQuestions];
- 
-  correctCount =
-    savedCorrect
-      ? parseInt(savedCorrect, 10)
-      : 0;
- 
-  currentIndex =
-    savedIdx
-      ? parseInt(savedIdx, 10)
-      : 0;
- 
- 
-  if (
-    currentIndex >= currentQuestions.length &&
-    currentQuestions.length > 0
-  ) {
- 
-    showClearScreen();
- 
-  } else {
- 
-    document.getElementById(
-      "quiz-area"
-    ).style.display = "block";
- 
-    document.getElementById(
-      "clear-area"
-    ).style.display = "none";
- 
-    loadQuestion(currentIndex);
- 
-  }
- 
+  const savedStage = localStorage.getItem("misery_current_stage");
+  currentStageIndex = savedStage ? parseInt(savedStage, 10) : 0;
+  if (currentStageIndex < 0 || currentStageIndex >= STAGES.length) currentStageIndex = 0;
+
+  loadStage(currentStageIndex);
 }
- 
- 
-/* =========================================================
-   行生成
-========================================================= */
- 
-function createRowHTML(
-  account = "",
-  amount = ""
-) {
- 
-  const div =
-    document.createElement("div");
- 
+
+function switchStage(stageIdx) {
+  if (stageIdx === currentStageIndex && !isReviewMode) return;
+  loadStage(stageIdx);
+}
+
+function loadStage(stageIdx) {
+  currentStageIndex = stageIdx;
+  localStorage.setItem("misery_current_stage", currentStageIndex);
+
+  for (let i = 0; i < STAGES.length; i++) {
+    const btn = document.getElementById(`tab-${i}`);
+    if (btn) {
+      if (i === stageIdx) btn.classList.add("active");
+      else btn.classList.remove("active");
+    }
+  }
+
+  const stageObj = STAGES[stageIdx];
+  document.getElementById("stage-badge-text").textContent = `❄️ ${stageObj.title}`;
+  document.getElementById("sub-title").textContent = `〜 ${stageObj.title} 〜`;
+
+  const keyPrefix = `misery_st${stageIdx}_`;
+  let stageData = stageObj.questions;
+  try {
+    const customData = localStorage.getItem(`${keyPrefix}data`);
+    if (customData) {
+      const parsed = JSON.parse(customData);
+      if (Array.isArray(parsed) && parsed.length > 0) stageData = parsed;
+    }
+  } catch(e) {}
+
+  currentQuestions = [...stageData];
+  currentIndex = 0;
+  correctCount = 0;
+  wrongList = [];
+  isReviewMode = false;
+  answeredSet.clear();
+
+  document.getElementById("quiz-area").style.display = "block";
+  document.getElementById("clear-area").style.display = "none";
+  loadQuestion(0);
+}
+
+function createRowHTML(account = "", amount = "") {
+  const div = document.createElement("div");
   div.className = "entry-row";
- 
   div.innerHTML = `
- 
-    <input
-      type="text"
-      placeholder="科目"
-      value="${account}"
-      lang="ja"
-    >
- 
-    <input
-      type="number"
-      placeholder="金額"
-      value="${amount}"
-    >
- 
-    <button
-      type="button"
-      class="btn-remove"
-      onclick="removeRow(this)"
-    >
-      ✕
-    </button>
- 
+    <input type="text" placeholder="科目" value="${account}">
+    <input type="number" placeholder="金額" value="${amount}">
+    <button type="button" class="btn-remove" onclick="removeRow(this)">✕</button>
   `;
- 
   return div;
 }
- 
- 
-/* =========================================================
-   行追加
-========================================================= */
- 
+
 function addRow(side) {
- 
-  document
-    .getElementById(`${side}-rows`)
-    .appendChild(
-      createRowHTML("", "")
-    );
- 
+  const container = document.getElementById(`${side}-rows`);
+  if (container) container.appendChild(createRowHTML());
 }
- 
- 
-/* =========================================================
-   行削除
-========================================================= */
- 
+
 function removeRow(btn) {
- 
-  const row =
-    btn.closest(".entry-row");
- 
-  if (
-    row.parentElement.children.length > 1
-  ) {
- 
+  const row = btn.closest(".entry-row");
+  if (row && row.parentElement && row.parentElement.children.length > 1) {
     row.remove();
- 
   } else {
- 
-    alert(
-      "🐚 最低1行は残しておこう！"
-    );
- 
+    alert("最低1行は必要です。");
   }
- 
 }
- 
- 
-/* =========================================================
-   問題読み込み
-========================================================= */
- 
+
 function loadQuestion(index) {
- 
-  if (
-    index < 0 ||
-    index >= currentQuestions.length
-  ) {
- 
-    return;
- 
-  }
- 
- 
+  if (!currentQuestions || currentQuestions.length === 0) return;
+  if (index < 0 || index >= currentQuestions.length) index = 0;
   currentIndex = index;
- 
- 
-  localStorage.setItem(
-    "mermaid_island_current_idx",
-    currentIndex
-  );
- 
-  localStorage.setItem(
-    "mermaid_island_correct_cnt",
-    correctCount
-  );
- 
-  localStorage.setItem(
-    "mermaid_island_wrong_list",
-    JSON.stringify(wrongList)
-  );
- 
-  localStorage.setItem(
-    "mermaid_island_is_review",
-    isReviewMode
-  );
- 
- 
-  const statusTag =
-    document.getElementById(
-      "status-tag"
-    );
- 
- 
+
+  const tag = document.getElementById("status-tag");
   if (isReviewMode) {
- 
-    statusTag.textContent =
-      "🔄 復習モード";
- 
-    statusTag.className =
-      "status-badge review";
- 
+    tag.textContent = "🔄 悪夢の反芻";
+    tag.className = "status-badge review";
   } else {
- 
-    statusTag.textContent =
-      "🌊 探索中";
- 
-    statusTag.className =
-      "status-badge";
- 
+    tag.textContent = "❄️ 監禁中";
+    tag.className = "status-badge";
   }
- 
- 
-  const modePrefix =
-    isReviewMode
-      ? "🔄 復習の試練"
-      : "🐠 島の試練";
- 
- 
-  document.getElementById(
-    "q-number"
-  ).textContent =
-    `${modePrefix} // ${String(index + 1).padStart(2,"0")} / ${currentQuestions.length}`;
- 
- 
-  document.getElementById(
-    "story-display"
-  ).textContent =
-    currentQuestions[index].story;
- 
- 
-  document.getElementById(
-    "debit-rows"
-  ).innerHTML = "";
- 
-  document.getElementById(
-    "credit-rows"
-  ).innerHTML = "";
- 
- 
+
+  const prefix = isReviewMode ? "🔄 復習" : `CHAPTER ${currentStageIndex + 1}`;
+  document.getElementById("q-number").textContent = `${prefix} // ${index + 1} / ${currentQuestions.length}`;
+  document.getElementById("story-display").textContent = currentQuestions[index].story;
+
+  document.getElementById("debit-rows").innerHTML = "";
+  document.getElementById("credit-rows").innerHTML = "";
   addRow("debit");
- 
   addRow("credit");
- 
- 
-  const res =
-    document.getElementById(
-      "result-display"
-    );
- 
+
+  const res = document.getElementById("result-display");
   res.style.display = "none";
- 
-  res.className =
-    "result-box";
- 
- 
-  document.getElementById(
-    "submit-btn"
-  ).style.display = "block";
- 
- 
-  const nextBtn =
-    document.getElementById(
-      "next-btn"
-    );
- 
- 
-  nextBtn.textContent =
-    currentIndex === currentQuestions.length - 1
-      ? "秘密の答えを見る ✨"
-      : "次の試練へ 🐠";
- 
- 
-  updateProgress();
- 
+  res.className = "result-box";
+  document.getElementById("submit-btn").style.display = "block";
+
+  const nextBtn = document.getElementById("next-btn");
+  nextBtn.textContent = (currentIndex === currentQuestions.length - 1) ? "章の結末へ 📖" : "次のページへ ▶";
+
+  const percent = Math.round(((index + 1) / currentQuestions.length) * 100);
+  document.getElementById("progress-fill").style.width = percent + "%";
+  document.getElementById("progress-text").textContent = `${index + 1} / ${currentQuestions.length} 節 (${percent}%)`;
 }
- 
- 
-/* =========================================================
-   入力データ取得
-========================================================= */
- 
+
 function getEntries(side) {
- 
-  const rows =
-    document.getElementById(
-      `${side}-rows`
-    ).children;
- 
- 
+  const container = document.getElementById(`${side}-rows`);
+  if (!container) return [];
+  const rows = container.children;
   const entries = [];
- 
- 
   for (let row of rows) {
- 
-    const inputs =
-      row.querySelectorAll("input");
- 
-    const account =
-      inputs[0].value.trim();
- 
-    const amount =
-      parseInt(
-        inputs[1].value,
-        10
-      );
- 
- 
-    if (
-      account &&
-      !isNaN(amount)
-    ) {
- 
-      entries.push({
-        account,
-        amount
-      });
- 
+    const inputs = row.querySelectorAll("input");
+    if (inputs.length >= 2) {
+      const account = inputs[0].value.trim();
+      const amount = parseInt(inputs[1].value, 10);
+      if (account && !isNaN(amount)) entries.push({ account, amount });
     }
- 
   }
- 
- 
   return entries;
- 
 }
- 
- 
-/* =========================================================
-   正解判定
-========================================================= */
- 
+
+// 正解演出：雪片、タイプライターの紙片、火の粉が舞い上がる
+function spawnRisingMagic() {
+  const symbols = ["❄️", "📄", "🔥", "✒️", "🩸", "⌨️", "📖"];
+  const totalItems = 26;
+
+  for (let i = 0; i < totalItems; i++) {
+    const item = document.createElement("div");
+    item.className = "rising-item";
+    item.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    item.style.left = (Math.random() * 92 + 4) + "vw";
+    
+    const driftX = (Math.random() * 80 - 40) + "px";
+    item.style.setProperty("--drift", driftX);
+
+    const size = Math.random() * 16 + 18;
+    const duration = Math.random() * 1.5 + 2.0;
+    const delay = Math.random() * 0.4;
+
+    item.style.fontSize = size + "px";
+    item.style.animationDuration = duration + "s";
+    item.style.animationDelay = delay + "s";
+
+    document.body.appendChild(item);
+
+    setTimeout(() => {
+      item.remove();
+    }, (duration + delay) * 1000);
+  }
+}
+
+// 不正解演出：大ハンマーの一撃のような激しい画面揺れ
+function triggerShake() {
+  const container = document.getElementById("mainContainer");
+  container.classList.remove("shake-animation");
+  void container.offsetWidth;
+  container.classList.add("shake-animation");
+
+  setTimeout(() => {
+    container.classList.remove("shake-animation");
+  }, 500);
+}
+
 function checkAnswer() {
- 
-  const q =
-    currentQuestions[currentIndex];
- 
- 
-  const userDebit =
-    getEntries("debit");
- 
-  const userCredit =
-    getEntries("credit");
- 
- 
-  const normalizeData =
-    (sideData) => {
- 
-      if (!sideData) {
-        return [];
-      }
- 
-      if (Array.isArray(sideData)) {
-        return sideData;
-      }
- 
-      return [sideData];
- 
-    };
- 
- 
-  const correctDebit =
-    normalizeData(q.debit);
- 
-  const correctCredit =
-    normalizeData(q.credit);
- 
- 
-  const matchSide =
-    (u, c) => {
- 
-      if (u.length !== c.length) {
-        return false;
-      }
- 
- 
-      const sU =
-        [...u].sort(
-          (a,b) =>
-            a.account.localeCompare(
-              b.account
-            ) ||
-            a.amount - b.amount
-        );
- 
- 
-      const sC =
-        [...c].sort(
-          (a,b) =>
-            a.account.localeCompare(
-              b.account
-            ) ||
-            a.amount - b.amount
-        );
- 
- 
-      return sU.every(
-        (v, i) =>
-          v.account === sC[i].account &&
-          v.amount === sC[i].amount
-      );
- 
-    };
- 
- 
-  const isOk =
-    matchSide(
-      userDebit,
-      correctDebit
-    ) &&
-    matchSide(
-      userCredit,
-      correctCredit
-    );
- 
- 
-  const res =
-    document.getElementById(
-      "result-display"
-    );
- 
- 
+  const q = currentQuestions[currentIndex];
+  const userDebit = getEntries("debit");
+  const userCredit = getEntries("credit");
+
+  const normalize = d => Array.isArray(d) ? d : [d];
+  const cDebit = normalize(q.debit);
+  const cCredit = normalize(q.credit);
+
+  const matchSide = (u, c) => {
+    if (u.length !== c.length) return false;
+    const sU = [...u].sort((a,b) => a.account.localeCompare(b.account) || a.amount - b.amount);
+    const sC = [...c].sort((a,b) => a.account.localeCompare(b.account) || a.amount - b.amount);
+    return sU.every((v, i) => v.account === sC[i].account && v.amount === sC[i].amount);
+  };
+
+  const isOk = matchSide(userDebit, cDebit) && matchSide(userCredit, cCredit);
+  const res = document.getElementById("result-display");
   res.style.display = "block";
- 
- 
+
   if (isOk) {
- 
-    /* =====================
-       正解演出
-    ====================== */
- 
-    res.className =
-      "result-box correct";
- 
- 
-    res.innerHTML = `
- 
-      <strong>
-        ✨ わぁ……！正解！
-      </strong>
- 
-      <br>
- 
-      🐚 仕訳の宝石がキラキラ輝いた！
- 
-      <br><br>
- 
-      【島のひみつ】
- 
-      <br>
- 
-      ${q.explanation}
- 
-    `;
- 
- 
-    createSparkles();
- 
- 
-    if (
-      !answeredSet.has(currentIndex)
-    ) {
- 
+    spawnRisingMagic();
+    res.className = "result-box correct";
+    res.innerHTML = `<strong>打鍵成功（正解）</strong><br>${q.explanation}`;
+    if (!answeredSet.has(currentIndex)) {
       correctCount++;
- 
- 
-      if (isReviewMode) {
- 
-        wrongList =
-          wrongList.filter(
-            item =>
-              item.story !== q.story
-          );
- 
-      }
- 
- 
-      answeredSet.add(
-        currentIndex
-      );
- 
+      if (isReviewMode) wrongList = wrongList.filter(item => item.story !== q.story);
+      answeredSet.add(currentIndex);
     }
- 
- 
   } else {
- 
-    /* =====================
-       不正解演出
-    ====================== */
- 
-    res.className =
-      "result-box wrong";
- 
- 
-    const dStr =
-      correctDebit
-        .map(
-          d =>
-            `（${d.account}: ${d.amount.toLocaleString()}円）`
-        )
-        .join(" ");
- 
- 
-    const cStr =
-      correctCredit
-        .map(
-          c =>
-            `（${c.account}: ${c.amount.toLocaleString()}円）`
-        )
-        .join(" ");
- 
- 
-    res.innerHTML = `
- 
-      <strong>
-        🫧 あれれ……仕訳がちがうみたい！
-      </strong>
- 
-      <br>
- 
-      もう一度、海の中をよく見てみよう。
- 
-      <br><br>
- 
-      【正解の仕訳】
- 
-      <br>
- 
-      🐚 借方:
-      ${dStr}
- 
-      <br>
- 
-      🐠 貸方:
-      ${cStr}
- 
-      <br><br>
- 
-      【ひみつの解説】
- 
-      <br>
- 
-      ${q.explanation}
- 
-    `;
- 
- 
-    document
-      .getElementById("quiz-area")
-      .classList.remove("shake");
- 
-    void document
-      .getElementById("quiz-area")
-      .offsetWidth;
- 
-    document
-      .getElementById("quiz-area")
-      .classList.add("shake");
- 
- 
-    if (
-      !answeredSet.has(currentIndex)
-    ) {
- 
-      if (
-        !wrongList.some(
-          item =>
-            item.story === q.story
-        )
-      ) {
- 
-        wrongList.push(q);
- 
-      }
- 
-      answeredSet.add(
-        currentIndex
-      );
- 
+    triggerShake();
+    res.className = "result-box wrong";
+    const dStr = cDebit.map(d => `(${d.account}: ${d.amount.toLocaleString()}円)`).join(" ");
+    const cStr = cCredit.map(c => `(${c.account}: ${c.amount.toLocaleString()}円)`).join(" ");
+    res.innerHTML = `<strong>ミスタッチ（不正解）アニーが睨みつけている…</strong><br>借方: ${dStr}<br>貸方: ${cStr}<br><br>${q.explanation}`;
+    if (!answeredSet.has(currentIndex)) {
+      if (!wrongList.some(item => item.story === q.story)) wrongList.push(q);
+      answeredSet.add(currentIndex);
     }
- 
   }
- 
- 
-  localStorage.setItem(
-    "mermaid_island_correct_cnt",
-    correctCount
-  );
- 
-  localStorage.setItem(
-    "mermaid_island_wrong_list",
-    JSON.stringify(wrongList)
-  );
- 
- 
-  updateProgress();
- 
 }
- 
- 
-/* =========================================================
-   キラキラ演出
-========================================================= */
- 
-function createSparkles() {
- 
-  const symbols = [
-    "✨",
-    "🫧",
-    "⭐",
-    "🐚",
-    "💎"
-  ];
- 
- 
-  for (
-    let i = 0;
-    i < 18;
-    i++
-  ) {
- 
-    const sparkle =
-      document.createElement(
-        "div"
-      );
- 
- 
-    sparkle.className =
-      "sparkle";
- 
- 
-    sparkle.textContent =
-      symbols[
-        Math.floor(
-          Math.random() *
-          symbols.length
-        )
-      ];
- 
- 
-    sparkle.style.left =
-      (40 + Math.random() * 20) +
-      "%";
- 
- 
-    sparkle.style.top =
-      (35 + Math.random() * 25) +
-      "%";
- 
- 
-    sparkle.style.setProperty(
-      "--x",
-      (
-        Math.random() * 260 -
-        130
-      ) + "px"
-    );
- 
- 
-    sparkle.style.setProperty(
-      "--y",
-      (
-        Math.random() * -220 -
-        40
-      ) + "px"
-    );
- 
- 
-    document.body.appendChild(
-      sparkle
-    );
- 
- 
-    setTimeout(
-      () => sparkle.remove(),
-      1300
-    );
- 
-  }
- 
-}
- 
- 
-/* =========================================================
-   前の問題
-========================================================= */
- 
-function prevQuestion() {
- 
-  if (currentIndex > 0) {
- 
-    loadQuestion(
-      currentIndex - 1
-    );
- 
-  }
- 
-}
- 
- 
-/* =========================================================
-   次の問題
-========================================================= */
- 
+
+function prevQuestion() { if (currentIndex > 0) loadQuestion(currentIndex - 1); }
 function nextQuestion() {
- 
-  if (
-    currentIndex <
-    currentQuestions.length - 1
-  ) {
- 
-    loadQuestion(
-      currentIndex + 1
-    );
- 
-  } else {
- 
-    showClearScreen();
- 
-  }
- 
+  if (currentIndex < currentQuestions.length - 1) loadQuestion(currentIndex + 1);
+  else showClearScreen();
 }
- 
- 
-/* =========================================================
-   探索ゲージ
-========================================================= */
- 
-function updateProgress() {
- 
-  if (
-    currentQuestions.length === 0
-  ) {
+
+function showClearScreen() {
+  document.getElementById("quiz-area").style.display = "none";
+  const clearArea = document.getElementById("clear-area");
+  clearArea.style.display = "block";
+
+  const total = currentQuestions.length;
+  const badgeArea = document.getElementById("complete-badge-area");
+  const scoreText = document.getElementById("score-text");
+  const revArea = document.getElementById("review-btn-area");
+
+  badgeArea.innerHTML = "";
+  revArea.innerHTML = "";
+
+  if (wrongList.length === 0) {
+    spawnRisingMagic();
+    badgeArea.innerHTML = `<div style="display:inline-block; padding:6px 14px; background:#12261a; border:1px solid #2ea043; border-radius:4px; font-weight:bold; color:#7ee787; margin-bottom:12px;">🏆 この章を完全に切り抜けた</div>`;
+    scoreText.innerHTML = `全節正解。完璧な原稿を完成させ、生き延びた。（${total} / ${total}）`;
+  } else {
+    scoreText.innerHTML = `${total} 節中 ${correctCount} 節 正解。<br>まだアニーの疑念（誤答）が ${wrongList.length} 件 残っている。`;
+    const btn = document.createElement("button");
+    btn.className = "btn-restart";
+    btn.style.background = "#8b0000";
+    btn.style.borderColor = "#ff6666";
+    btn.textContent = `🔄 間違えた節だけ書き直す (${wrongList.length}問)`;
+    btn.onclick = () => {
+      isReviewMode = true;
+      currentQuestions = [...wrongList];
+      currentIndex = 0;
+      correctCount = 0;
+      answeredSet.clear();
+      document.getElementById("quiz-area").style.display = "block";
+      clearArea.style.display = "none";
+      loadQuestion(0);
+    };
+    revArea.appendChild(btn);
+  }
+}
+
+function startFreshStage() {
+  loadStage(currentStageIndex);
+}
+
+function forceReset() {
+  localStorage.clear();
+  location.reload();
+}
+
+function loadCustomData() {
+  const input = document.getElementById("json-input").value.trim();
+  if (!input) {
+    alert("JSONデータを貼り付けてください。");
     return;
   }
- 
- 
-  const percent =
-    Math.round(
-      (currentIndex /
-        currentQuestions.length) *
-        100
-    );
- 
- 
-  document.getElementById(
-    "progress-fill"
-  ).style.width =
-    percent + "%";
- 
- 
-  document.getElementById(
-    "progress-text"
-  ).textContent =
-    percent + "%";
- 
-}
- 
- 
-/* =========================================================
-   完了画面
-========================================================= */
- 
-function showClearScreen() {
- 
-  document.getElementById(
-    "quiz-area"
-  ).style.display =
-    "none";
- 
- 
-  const clearArea =
-    document.getElementById(
-      "clear-area"
-    );
- 
- 
-  clearArea.style.display =
-    "block";
- 
- 
-  const total =
-    currentQuestions.length;
- 
- 
-  const badgeArea =
-    document.getElementById(
-      "complete-badge-area"
-    );
- 
- 
-  const scoreText =
-    document.getElementById(
-      "score-text"
-    );
- 
- 
-  const reviewBtnArea =
-    document.getElementById(
-      "review-btn-area"
-    );
- 
- 
-  badgeArea.innerHTML = "";
- 
-  reviewBtnArea.innerHTML = "";
- 
- 
-  if (
-    wrongList.length === 0
-  ) {
- 
-    localStorage.setItem(
-      "mermaid_island_master_completed",
-      "true"
-    );
- 
- 
-    badgeArea.innerHTML = `
- 
-      <div class="badge-complete">
-        🏆 人魚の島のひみつを解き明かした！
-      </div>
- 
-    `;
- 
- 
-    scoreText.innerHTML = `
- 
-      🌊 冒険おつかれさまでした！
- 
-      <br>
- 
-      <strong>
-        ${total}問中 ${correctCount}問 正解
-      </strong>
- 
-      <br><br>
- 
-      すべての仕訳をクリアしました。
- 
-      <br>
- 
-      島の奥に眠っていた宝箱が、
-      ゆっくりと開いていきます……✨
- 
-    `;
- 
- 
-    createSparkles();
- 
- 
-  } else {
- 
-    scoreText.innerHTML = `
- 
-      🐚 今回の冒険が終了しました。
- 
-      <br>
- 
-      <strong>
-        ${total}問中 ${correctCount}問 正解
-      </strong>
- 
-      <br><br>
- 
-      まだ
- 
-      <strong>
-        ${wrongList.length}問
-      </strong>
- 
-      の仕訳が、
-      海の底に残っています。
- 
-      <br>
- 
-      もう一度挑戦してみよう！
- 
-    `;
- 
- 
-    const revBtn =
-      document.createElement(
-        "button"
-      );
- 
- 
-    revBtn.className =
-      "btn-review";
- 
- 
-    revBtn.textContent =
-      `🔄 間違えた試練だけ復習する（${wrongList.length}問）`;
- 
- 
-    revBtn.onclick =
-      startReviewMode;
- 
- 
-    reviewBtnArea.appendChild(
-      revBtn
-    );
- 
-  }
- 
- 
-  localStorage.setItem(
-    "mermaid_island_current_idx",
-    currentQuestions.length
-  );
- 
-}
- 
- 
-/* =========================================================
-   復習モード
-========================================================= */
- 
-function startReviewMode() {
- 
-  isReviewMode = true;
- 
-  currentQuestions =
-    [...wrongList];
- 
-  currentIndex = 0;
- 
-  correctCount = 0;
- 
-  answeredSet.clear();
- 
- 
-  document.getElementById(
-    "quiz-area"
-  ).style.display =
-    "block";
- 
- 
-  document.getElementById(
-    "clear-area"
-  ).style.display =
-    "none";
- 
- 
-  loadQuestion(0);
- 
-}
- 
- 
-/* =========================================================
-   最初から
-========================================================= */
- 
-function startFreshQuiz() {
- 
-  clearSavedProgress();
- 
- 
-  isReviewMode = false;
- 
-  currentQuestions =
-    [...baseQuestions];
- 
-  wrongList = [];
- 
-  currentIndex = 0;
- 
-  correctCount = 0;
- 
-  answeredSet.clear();
- 
- 
-  document.getElementById(
-    "quiz-area"
-  ).style.display =
-    "block";
- 
- 
-  document.getElementById(
-    "clear-area"
-  ).style.display =
-    "none";
- 
- 
-  loadQuestion(0);
- 
-}
- 
- 
-/* =========================================================
-   保存データ削除
-========================================================= */
- 
-function clearSavedProgress() {
- 
-  localStorage.removeItem(
-    "mermaid_island_current_idx"
-  );
- 
-  localStorage.removeItem(
-    "mermaid_island_correct_cnt"
-  );
- 
-  localStorage.removeItem(
-    "mermaid_island_wrong_list"
-  );
- 
-  localStorage.removeItem(
-    "mermaid_island_is_review"
-  );
- 
-}
- 
- 
-/* =========================================================
-   JSONデータ読み込み
-========================================================= */
- 
-function loadCustomData() {
- 
-  const input =
-    document.getElementById(
-      "json-input"
-    ).value;
- 
- 
   try {
- 
-    const data =
-      JSON.parse(input);
- 
- 
-    if (
-      !Array.isArray(data) ||
-      data.length === 0
-    ) {
- 
-      throw new Error();
- 
-    }
- 
- 
-    baseQuestions = data;
- 
- 
-    localStorage.setItem(
-      "mermaid_island_boki_data",
-      JSON.stringify(data)
-    );
- 
- 
-    clearSavedProgress();
- 
- 
-    localStorage.removeItem(
-      "mermaid_island_master_completed"
-    );
- 
- 
-    alert(
-      "🏝️ 新しい島の試練を発見しました！"
-    );
- 
- 
-    startFreshQuiz();
- 
- 
+    const data = JSON.parse(input);
+    if (!Array.isArray(data) || data.length === 0) throw new Error();
+
+    STAGES[currentStageIndex].questions = data;
+    localStorage.setItem(`misery_st${currentStageIndex}_data`, JSON.stringify(data));
+    loadStage(currentStageIndex);
+    alert(`CHAPTER ${currentStageIndex + 1} に新しい手記データ（全${data.length}問）を取り込みました。`);
   } catch (e) {
- 
-    alert(
-      "🫧 JSONの書式が正しくありません。"
-    );
- 
+    alert("⚠️ JSONデータの形式を確認してください。正しく貼り付けられているかチェックをお願いします。");
   }
- 
 }
- 
- 
-/* =========================================================
-   起動
-========================================================= */
- 
-window.onload = init;
- 
+
+window.addEventListener("DOMContentLoaded", init);
 </script>
- 
 </body>
 </html>
